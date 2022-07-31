@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - post-status-for-triggered-pipelines
     tags:
       - '*'
   pull_request:
@@ -16,13 +17,12 @@ concurrency:
 jobs:
   test-status:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
     steps:
     - run: |
         gh api \
            --method POST \
           -H "Accept: application/vnd.github+json" \
-          /repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha }} \
+          /repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha || github.sha }} \
           -f state='pending' \
           -f target_url='https://eicweb.phy.anl.gov/EIC' \
           -f description='The build is pending...' \
