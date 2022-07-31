@@ -26,6 +26,8 @@ jobs:
           -f target_url='https://eicweb.phy.anl.gov/EIC'
           -f description='The build is pending...'
           -f context='continuous-integration/eicweb'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   xmllint-before-build:
     runs-on: ubuntu-latest
