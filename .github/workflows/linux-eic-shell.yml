@@ -22,9 +22,9 @@ jobs:
            --method POST \
           -H "Accept: application/vnd.github+json" \
           /repos/wdconinc/epic/statuses/${{ github.sha }} \
-          -f state='pending'
-          -f target_url='https://eicweb.phy.anl.gov/EIC'
-          -f description='The build is pending...'
+          -f state='pending' \
+          -f target_url='https://eicweb.phy.anl.gov/EIC' \
+          -f description='The build is pending...' \
           -f context='continuous-integration/eicweb'
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
