@@ -21,7 +21,7 @@ jobs:
         gh api \
            --method POST \
           -H "Accept: application/vnd.github+json" \
-          /repos/${{ github.repository }}/statuses/${{ github.pull_request.head.sha }} \
+          /repos/${{ github.repository }}/statuses/${{ github.sha }} \
           -f state='pending' \
           -f target_url='https://eicweb.phy.anl.gov/EIC' \
           -f description='The build is pending...' \
