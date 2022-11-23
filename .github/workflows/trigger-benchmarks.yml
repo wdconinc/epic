@@ -2,8 +2,7 @@ name: trigger-benchmarks
 
 on:
   workflow_run:
-    workflows:
-      - linux-eic-shell
+    workflows: ["linux-eic-shell"]
     types:
       - completed
 
