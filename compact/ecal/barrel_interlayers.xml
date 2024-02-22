@@ -30,7 +30,7 @@
     <constant name="EcalBarrel_Calorimeter_offset"
       value="(EcalBarrel_Calorimeter_zmax - EcalBarrel_Calorimeter_zmin)/2.0"/>
 
-    <constant name="EcalBarrel_FrontSupportThickness" value="0.5*cm"/>
+    <constant name="EcalBarrel_FrontSupportThickness" value="0.4*cm"/>
     <constant name="EcalBarrel_BackSupportThickness" value="3*cm"/>
     <constant name="EcalBarrel_SiliconThickness"     value="500*um"/>
     <constant name="EcalBarrel_ElectronicsThickness" value="150*um"/>
