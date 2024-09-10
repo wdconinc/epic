@@ -56,8 +56,9 @@
     <constant name="ForwardTOF_zmin"              value="ForwardTOFRegion_zmin + ForwardTOFRegion_length - ForwardTOF_length - 1*cm"/>
 
     <comment> Service/Support setup </comment>
-    <constant name="TrackerSupportCyl_rmin1"          value="TrackerEndcapDisk_rmax + 0.2*cm"/>
-    <constant name="TrackerSupportCyl_rmin2"          value="InnerMPGDBarrel_rmin - 1.2*cm"/>
+    <constant name="TrackerSupportCyl_rmin1"          value="TrackerEndcapDisk_rmax + 2*cm"/> <comment> Ref: Services Material Budget 24.03.04..stp -- 450.00 mm </comment>
+    <constant name="TrackerSupportCylEndcapN_rmin2"   value="BackwardPIDRegion_rmax + 4.5*cm"/> <comment> Ref: Services Material Budget 24.03.13.stp -- 670.00 mm, nudged 5 mm </comment>
+    <constant name="TrackerSupportCylEndcapP_rmin2"   value="ForwardTOFRegion_maxR + 2*cm"/> <comment> Ref: Services Material Budget 24.03.04..stp -- 520.00 mm </comment>
     <comment> These may belong in definitions.xml </comment>
     <constant name="InnerTrackerEndcapP_zmax"        value="CentralTrackingRegionP_zmax"/>
     <constant name="InnerTrackerEndcapN_zmax"        value="CentralTrackingRegionN_zmax"/>
@@ -102,8 +103,8 @@
     <comment> Main parameters for MPGD endcap disks, offset here is the distance between disks </comment>
     <constant name="ForwardMPGD_zmin"             value="148*cm"/>
     <constant name="ForwardMPGDMod_offset"        value="13.0*cm"/>
-    <constant name="ForwardMPGDMod1_rmin"         value="7.014*cm" />
-    <constant name="ForwardMPGDMod2_rmin"         value="7.014*cm"/>
+    <constant name="ForwardMPGDMod1_rmin"         value="9.0*cm" />
+    <constant name="ForwardMPGDMod2_rmin"         value="9.0*cm"/>
     <constant name="ForwardMPGDMod1_rmax"         value="50*cm" />
     <constant name="ForwardMPGDMod2_rmax"         value="50*cm" />
 
@@ -196,7 +197,7 @@
     <plugin name="epic_FileLoader">
       <arg value="cache:$DETECTOR_PATH:/opt/detector"/>
       <arg value="file:calibrations/materials-map.cbor"/>
-      <arg value="url:https://eicweb.phy.anl.gov/EIC/detectors/athena/uploads/6253bfcb92dd6bc236dd9a06084614ba/material-maps.cbor"/>
+      <arg value="url:https://eicweb.phy.anl.gov/EIC/detectors/athena/uploads/807fdbd7c54e58f22f45d6344f68eea4/material-map-24.08.cbor"/>
     </plugin>
   </plugins>
 
