@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - post-status-for-triggered-pipelines
     tags:
       - '*'
   pull_request:
@@ -15,6 +16,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  test-status:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        gh api \
+           --method POST \
+          -H "Accept: application/vnd.github+json" \
+          /repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha || github.sha }} \
+          -f state='pending' \
+          -f target_url='https://eicweb.phy.anl.gov/EIC' \
+          -f description='The build is pending...' \
+          -f context='continuous-integration/eicweb'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   xmllint-before-build:
     runs-on: ubuntu-latest
     steps:
